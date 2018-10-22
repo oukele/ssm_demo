@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 映射  dao  中的  IBookDao接口  -->
+<mapper namespace="com.oukele.bookshop_ssm.dao.IBookDao">
+
+    <insert id="insert">
+        insert into ssm_book(name,cnt) values(#{name},#{cnt})
+    </insert>
+
+    <update id="update">
+        update ssm_book set cnt = cnt + #{cnt} where name=#{name}
+    </update>
+
+    <select id="listAll" resultType="com.oukele.bookshop_ssm.entity.Book">
+        select * from ssm_book
+    </select>
+
+    <select id="getBookName" resultType="java.lang.Integer">
+      select count(name) from ssm_book where name=#{name}
+    </select>
+
+</mapper>
